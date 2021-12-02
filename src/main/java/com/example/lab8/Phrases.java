@@ -54,6 +54,7 @@ public class Phrases {
 
         JSONArray jsonArray = (JSONArray) obj;
 
+        assert jsonArray != null;
         for (Object jsonObject : jsonArray) {
             JSONObject current = (JSONObject) jsonObject;
             int quoteId = Integer.parseInt(String.valueOf(current.get("quote_id")));
@@ -67,10 +68,10 @@ public class Phrases {
 
     @Override
     public String toString() {
-        String result = "Phrases (" + (new Date()).toLocaleString() + ") " + System.lineSeparator();
+        StringBuilder result = new StringBuilder("Phrases (" + (new Date()).toLocaleString() + ") " + System.lineSeparator());
         for (BreakingBadPhrase bbp : phrases) {
-            result += bbp + System.lineSeparator();
+            result.append(bbp).append(System.lineSeparator());
         }
-        return result;
+        return result.toString();
     }
 }

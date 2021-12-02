@@ -22,7 +22,7 @@ public class JSONGetter extends Thread {
 
     public String ConnectAndGetData() {
         jsonIn = "";
-        InputStream is = null;
+        InputStream is;
         try {
             is = new URL(url).openStream();
             try {
@@ -46,9 +46,6 @@ public class JSONGetter extends Thread {
         return jsonIn;
     }
 
-    public void parseData(){
-
-    }
     @Override
     public void run() {
         ConnectAndGetData();

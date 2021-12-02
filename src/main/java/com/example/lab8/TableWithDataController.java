@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+@SuppressWarnings("ALL")
 public class TableWithDataController implements Initializable {
     public static final int MS_TIMEOUT = 100;
     public static final int TIMEOUT = 3000;
@@ -47,17 +48,17 @@ public class TableWithDataController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {}
-    
+
     private static String getStringFromResultSet(ArrayList result) {
-        String str = "";
+        StringBuilder str = new StringBuilder();
 
         for (Object row : result) {
             for (String column : (String[]) row) {
-                str += column + "\t\t";
+                str.append(column).append("\t\t");
             }
-            str += "\n";
+            str.append("\n");
         }
-        return str;
+        return str.toString();
     }
 
     public void loadDataBase(ActionEvent actionEvent) throws SQLException {
@@ -65,7 +66,7 @@ public class TableWithDataController implements Initializable {
         JSONGetter jsonGetter = new JSONGetter();
         JSONGetter.url = "https://breakingbadapi.com/api/quotes";
         jsonGetter.run();
-/*        int msForWaiting = 0;
+        int msForWaiting = 0;
         do {
             msForWaiting += MS_TIMEOUT;
             try {
@@ -83,7 +84,7 @@ public class TableWithDataController implements Initializable {
                     Platform.exit();
                 }
             });
-        }*/
+        }
 
         Phrases phrases = new Phrases();
         phrases.ReadAndParseToList(jsonGetter);
@@ -133,7 +134,7 @@ public class TableWithDataController implements Initializable {
         TableData.getItems().clear();
         Statement st = db.connection.createStatement();
         ResultSet rs;
-        rs = st.executeQuery("select * from phrases where author like" + "\'%" + searchField.getText() + "%\'" + " ;");
+        rs = st.executeQuery("select * from phrases where author like" + "'%" + searchField.getText() + "%'" + " ;");
 
         ObservableList<BreakingBadPhrase> data = FXCollections.observableArrayList();
 

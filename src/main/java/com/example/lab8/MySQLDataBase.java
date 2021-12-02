@@ -8,16 +8,17 @@ import java.util.Properties;
 import static java.sql.DriverManager.getConnection;
 
 public class MySQLDataBase {
+
     /**
      * JDBC URL для базы данных на Localhost
      */
-    /*private final String url;
-     *//**
+    private final String url;
+
+    /**
      * Имя БД
-     *//*
-    private final String DBname;*/
-    private String DBname;
-    private String url;
+     */
+    private final String DBname;
+
     private PreparedStatement st;
     public Connection connection;
 
@@ -44,8 +45,6 @@ public class MySQLDataBase {
             properties.setProperty("password", "test");
             properties.setProperty("useSSL", "false");
             properties.setProperty("autoReconnect", "true");
-//         System.out.println(url);
-//         System.out.println(properties);
             connection = getConnection(url, properties); // здесь осуществляется соединение c login и password
             this.executeQuery("use " + DBname + ";");
 
@@ -61,9 +60,7 @@ public class MySQLDataBase {
      *
      * @param query запрос
      *
-     * @return
-     *
-     * @throws SQLException
+     * @throws SQLException Стандартный exception для работы с SQL
      */
     public boolean executeQuery(String query) throws SQLException {
         Statement st = connection.createStatement();

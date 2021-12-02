@@ -2,6 +2,7 @@ package com.example.lab8;
 
 import java.util.Comparator;
 
+@SuppressWarnings("ALL")
 public class BreakingBadPhrase {
     private int quoteId;
     private String quote;
