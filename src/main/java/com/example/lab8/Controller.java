@@ -44,7 +44,7 @@ public class Controller {
             Parent root = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
-            stage.setTitle("Lab 8 - Bilyi Max");
+            stage.setTitle("Lab 8 - Belyi Max");
             stage.getIcons().add(new Image("https://cdn3.iconfinder.com/data/icons/pixomania/128/anchor-256.png"));
             stage.setMinWidth(900);
             stage.setMinHeight(320);

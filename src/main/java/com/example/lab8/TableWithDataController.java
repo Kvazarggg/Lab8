@@ -20,7 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 @SuppressWarnings("ALL")
 public class TableWithDataController implements Initializable {
     public static final int MS_TIMEOUT = 100;
-    public static final int TIMEOUT = 3000;
+    public static final int TIMEOUT = 5000;
     public static MySQLDataBase db;
     @FXML
     private ResourceBundle resources;
@@ -95,13 +95,11 @@ public class TableWithDataController implements Initializable {
             e.printStackTrace();
         }
 
+        String query = "INSERT INTO phrases(quoteId, quote, author, series) VALUES (?,?,?,?)";
+
         for (int i = 0; i < phrases.getPhrases().size(); i++) {
             try {
-                db.insert("INSERT INTO phrases(quoteId, quote, author, series) VALUES (" +
-                        "\"" + phrases.getPhrases().get(i).getQuoteId() + "\", " +
-                        "\"" + phrases.getPhrases().get(i).getQuote() + "\", " +
-                        "\"" + phrases.getPhrases().get(i).getAuthor() + "\", " +
-                        "\"" + phrases.getPhrases().get(i).getSeries() + "\")");
+                db.insert(query, i, phrases);
             } catch (SQLException e) {
                 e.printStackTrace();
             }

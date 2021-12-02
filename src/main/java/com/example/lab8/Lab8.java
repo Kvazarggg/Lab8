@@ -16,7 +16,7 @@ public class Lab8 extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Lab8.class.getResource("MainApp.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.getIcons().add(new Image("https://cdn3.iconfinder.com/data/icons/pixomania/128/anchor-256.png"));
-        stage.setTitle("Lab 8 - Bilyi Max");
+        stage.setTitle("Lab 8 - Belyi Max");
         stage.setMinWidth(615);
         stage.setMinHeight(440);
         stage.setMaxWidth(615);

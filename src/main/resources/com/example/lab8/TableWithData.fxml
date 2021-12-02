@@ -4,6 +4,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="900.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab8.TableWithDataController">
@@ -20,6 +22,11 @@
          </columnResizePolicy>
       </TableView>
       <TextField fx:id="searchField" layoutX="34.0" layoutY="28.0" maxHeight="30.0" maxWidth="640.0" onAction="#onTextInputFinish" prefHeight="30.0" prefWidth="639.0" promptText="Введите ИМЯ или ФАМИЛИЮ автора" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
-      <Button fx:id="loadButton" layoutX="340.0" layoutY="73.0" maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#loadDataBase" prefHeight="26.0" prefWidth="220.0" text="Загрузка базы даннных" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="340.0" />
+      <Button fx:id="loadButton" layoutX="340.0" layoutY="73.0" maxWidth="220.0" minWidth="220.0" mnemonicParsing="false" onAction="#loadDataBase" prefHeight="26.0" prefWidth="220.0" style="-fx-background-color: #fafafa; -fx-background-radius: 7; -fx-border-radius: 7; -fx-border-color: #D3D3D3;" text="Загрузка базы даннных" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="340.0" />
+      <ImageView fitHeight="27.0" fitWidth="26.0" layoutX="117.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/com/example/lab8/magnifier.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -21,6 +21,7 @@ public class MySQLDataBase {
 
     private PreparedStatement st;
     public Connection connection;
+    //Phrases phrases;
 
     public MySQLDataBase(String DBname) {
         this.DBname = DBname;
@@ -66,13 +67,18 @@ public class MySQLDataBase {
         Statement st = connection.createStatement();
         return st.execute(query);
     }
-    public int executeUpdate(String query) throws SQLException {
-        Statement st = connection.createStatement();
-        return st.executeUpdate(query);
+    public int executeUpdate(String query, int count, Phrases phrases) throws SQLException {
+        PreparedStatement pst = connection.prepareStatement(query);
+        pst.setInt(1, phrases.getPhrases().get(count).getQuoteId());
+        pst.setString(2, phrases.getPhrases().get(count).getQuote());
+        pst.setString(3, phrases.getPhrases().get(count).getAuthor());
+        pst.setString(4, phrases.getPhrases().get(count).getSeries());
+
+        return pst.executeUpdate();
     }
 
-    public boolean insert(String query) throws SQLException {
-        executeUpdate(query);
+    public boolean insert(String query, int count, Phrases phrases) throws SQLException {
+        executeUpdate(query, count, phrases);
 
         return true;
     }
